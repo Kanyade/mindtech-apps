@@ -13,31 +13,9 @@ class RoutesBuilder {
     color: Colors.white,
     child: Center(child: CircularProgressIndicator.adaptive()),
   );
-  Widget startScreenBuilder(BuildContext context, GoRouterState state) => const StartScreen();
-  Widget accountScreenBuilder(BuildContext context, GoRouterState state) => const AccountScreen();
-}
-
-class GoRouteWrapper extends HookWidget {
-  const GoRouteWrapper({super.key, required this.child, this.onInit, this.onAfterLayout, this.onDispose});
-
-  final Widget child;
-  final void Function()? onInit;
-  final void Function()? onDispose;
-  final void Function(BuildContext context)? onAfterLayout;
-
-  VoidCallback? setup(BuildContext context) {
-    onInit?.call();
-    if (onAfterLayout != null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) => onAfterLayout?.call(context));
-    }
-    return onDispose;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    useEffect(() => setup(context), const []);
-    return child;
-  }
+  Widget loginScreenBuilder(BuildContext context, GoRouterState state) => const LoginScreen();
+  Widget transactionsScreenBuilder(BuildContext context, GoRouterState state) => const TransactionsScreen();
+  Widget settingsScreenBuilder(BuildContext context, GoRouterState state) => const SettingsScreen();
 }
 
 extension GoRouterStateExtension on GoRouterState {

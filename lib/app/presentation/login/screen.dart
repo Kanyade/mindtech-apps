@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/base_screen.dart';
 import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
-import 'package:flutter/material.dart';
 
-class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class StartScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text('Welcome to App Skeleton', style: AppTextStyles.uiLabelLarge, textAlign: TextAlign.center)],
+          children: [Text('Login screen', style: AppTextStyles.uiLabelLarge, textAlign: TextAlign.center)],
         ),
       ),
     );

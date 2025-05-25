@@ -1,27 +1,27 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:io_mindtechapps_hw/app/domain/profile/bloc/bloc.dart';
 import 'package:io_mindtechapps_hw/app/domain/profile/repository.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/bottom_navigation_menu.dart';
-import 'package:io_mindtechapps_hw/app/presentation/account/screen.dart';
-import 'package:io_mindtechapps_hw/app/presentation/start/screen.dart';
+import 'package:io_mindtechapps_hw/app/presentation/authenticated/settings/screen.dart';
+import 'package:io_mindtechapps_hw/app/presentation/authenticated/transactions/screen.dart';
+import 'package:io_mindtechapps_hw/app/presentation/login/screen.dart';
 import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/utils/logger.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/single_child_widget.dart';
 
 part 'navigator_keys.dart';
 part 'routes.dart';
 part 'routes_builder.dart';
 
-enum BottomNavigationTab { start, account }
+enum BottomNavigationTab { transactions, settings }
 
 class MindtechAppRouter {
   final CrashlyticsRepository _crashlyticsRepository;
@@ -47,7 +47,7 @@ class MindtechAppRouter {
       debugLogDiagnostics: kDebugMode,
       observers: [_analyticsRepository.navigatorObserver],
       navigatorKey: MindtechAppNavigatorKeys.navigationKey,
-      initialLocation: Routes.start,
+      initialLocation: Routes.login,
       onException: (context, state, router) {
         final e = 'MindtechAppRouter: route not found ${state.uri.toString()}';
         if (AppConstants.flavor == AppFlavor.prod) {
@@ -58,6 +58,7 @@ class MindtechAppRouter {
       },
       routes: <RouteBase>[
         GoRoute(name: Routes.loading, path: Routes.loading, builder: _routeBuilders.loadingScreenBuilder),
+        GoRoute(name: Routes.login, path: Routes.login, builder: _routeBuilders.loginScreenBuilder),
         StatefulShellRoute.indexedStack(
           builder: (_, _, navigationShell) {
             return AnnotatedRegion(
@@ -74,8 +75,8 @@ class MindtechAppRouter {
           branches: _mainTabs
               .map(
                 (tab) => switch (tab) {
-                  BottomNavigationTab.start => _startBranch(),
-                  BottomNavigationTab.account => _accountBranch(),
+                  BottomNavigationTab.transactions => _transactionsBranch(),
+                  BottomNavigationTab.settings => _settingsBranch(),
                 },
               )
               .toList(growable: false),
@@ -84,18 +85,24 @@ class MindtechAppRouter {
     );
   }
 
-  StatefulShellBranch _startBranch() {
+  StatefulShellBranch _transactionsBranch() {
     return StatefulShellBranch(
-      initialLocation: Routes.start,
-      routes: [GoRoute(path: Routes.start, name: Routes.start, builder: _routeBuilders.startScreenBuilder)],
+      initialLocation: Routes.transactions,
+      routes: [
+        GoRoute(
+          path: Routes.transactions,
+          name: Routes.transactions,
+          builder: _routeBuilders.transactionsScreenBuilder,
+        ),
+      ],
       observers: [_analyticsRepository.navigatorObserver],
     );
   }
 
-  StatefulShellBranch _accountBranch() {
+  StatefulShellBranch _settingsBranch() {
     return StatefulShellBranch(
-      initialLocation: Routes.account,
-      routes: [GoRoute(path: Routes.account, name: Routes.account, builder: _routeBuilders.accountScreenBuilder)],
+      initialLocation: Routes.settings,
+      routes: [GoRoute(path: Routes.settings, name: Routes.settings, builder: _routeBuilders.settingsScreenBuilder)],
       observers: [_analyticsRepository.navigatorObserver],
     );
   }

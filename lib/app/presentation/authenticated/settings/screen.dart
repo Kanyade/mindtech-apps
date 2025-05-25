@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/base_screen.dart';
 import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
-import 'package:flutter/material.dart';
 
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class AccountScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text('Account screen', style: AppTextStyles.uiLabelLarge, textAlign: TextAlign.center)],
+          children: [Text('Settings screen', style: AppTextStyles.uiLabelLarge, textAlign: TextAlign.center)],
         ),
       ),
     );

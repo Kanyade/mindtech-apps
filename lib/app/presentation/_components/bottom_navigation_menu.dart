@@ -1,12 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:io_mindtechapps_hw/core/router/router.dart';
 import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/utils/extensions/string_extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:go_router/go_router.dart';
 
 class BottomNavigationMenu extends HookWidget {
   const BottomNavigationMenu({
@@ -82,13 +82,13 @@ class BottomNavigationMenu extends HookWidget {
             items: tabs
                 .map((e) {
                   return switch (e) {
-                    BottomNavigationTab.start => BottomNavigationBarItem(
-                      label: 'Start'.hardCoded,
+                    BottomNavigationTab.transactions => BottomNavigationBarItem(
+                      label: 'Transactions'.hardCoded,
                       icon: Icon(Icons.home_outlined, size: iconSize, color: AppColors.gray75),
                       activeIcon: Icon(Icons.home_outlined, size: iconSize, color: AppColors.primary),
                     ),
-                    BottomNavigationTab.account => BottomNavigationBarItem(
-                      label: 'Account'.hardCoded,
+                    BottomNavigationTab.settings => BottomNavigationBarItem(
+                      label: 'Settings'.hardCoded,
                       icon: Icon(Icons.account_circle_outlined, size: iconSize, color: AppColors.gray75),
                       activeIcon: Icon(Icons.account_circle_outlined, size: iconSize, color: AppColors.primary),
                     ),

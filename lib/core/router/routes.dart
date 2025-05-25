@@ -1,9 +1,13 @@
 part of 'router.dart';
 
 class Routes {
-  static const start = '/start';
-  static const account = '/account';
+  // Unauthenticated routes section
+  static const login = '/login';
   static const loading = '/loading';
+
+  // Authenticated routes section
+  static const transactions = '/transactions';
+  static const settings = '/settings';
 }
 
 class AppRoute<ReturnType> {
@@ -14,7 +18,8 @@ class AppRoute<ReturnType> {
 
   const AppRoute._(this.name, {this.queryParameters = const {}});
 
-  static AppRoute start() => const AppRoute._(Routes.start);
-  static AppRoute account() => const AppRoute._(Routes.account);
+  static AppRoute login() => const AppRoute._(Routes.login);
   static AppRoute loading() => const AppRoute._(Routes.loading);
+  static AppRoute transactions() => const AppRoute._(Routes.transactions);
+  static AppRoute settings() => const AppRoute._(Routes.settings);
 }
