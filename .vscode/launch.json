@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "PROD app-skeleton",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "toolArgs": [
+        "--dart-define",
+        "current_flavor=prod",
+        "--dart-define",
+        "vscode=true"
+      ],
+      "args": [
+        "--flavor",
+        "prod"
+      ]
+    },
+    {
+      "name": "QA app-skeleton",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "toolArgs": [
+        "--dart-define",
+        "current_flavor=qa",
+        "--dart-define",
+        "vscode=true"
+      ],
+      "args": [
+        "--flavor",
+        "qa"
+      ]
+    },
+  ]
+}

@@ -1,0 +1,9 @@
+<resources>
+    <string name="asset_statements_qa" translatable="false">[{"include": "https://todo-qa-link/.well-known/assetlinks.json"}]</string>
+    <string name="asset_statements_prod" translatable="false">[{"include": "https://todo-prod-link/.well-known/assetlinks.json"}]</string>
+
+    <string name="app_name_qa">App Skeleton (QA)</string>
+    <string name="app_name_prod">App Skeleton</string>
+    <string name="app_host_url_qa">todo-qa-link.com</string>
+    <string name="app_host_url_prod">todo-prod-link.com</string>
+</resources>

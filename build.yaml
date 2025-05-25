@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      envied_generator|envied:
+        generate_for:
+          - lib/**.env.dart
+
+      json_serializable:
+        enabled: true
+        generate_for:
+          - lib/**.jsn.dart
+        options:
+          explicit_to_json: true
+          include_if_null: false

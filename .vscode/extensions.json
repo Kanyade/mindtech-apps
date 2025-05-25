@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dart-code.dart-code",
+    "dart-code.flutter",
+    "aaron-bond.better-comments",
+    "usernamehw.errorlens",
+    "eamodio.gitlens",
+    "esentis.flutter-find-unused-assets-and-dart-files",
+    "github.vscode-github-actions"
+  ]
+}
