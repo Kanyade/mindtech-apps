@@ -11,6 +11,7 @@ class AuthenticationBloc extends BaseBloc<AuthenticationEvent, AuthenticationSta
       ) {
     on<AuthenticationLoginEvent>((event, emit) async {
       emit(const AuthenticationLoadingState());
+      await Future.delayed(const Duration(seconds: 3));
       final result = await _authenticationRepository.login(email: event.email, password: event.password);
 
       emit(switch (result) {

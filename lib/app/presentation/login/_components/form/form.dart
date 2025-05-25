@@ -31,7 +31,7 @@ class _LoginForm extends HookWidget with TextFieldHooksMixin {
         listenWhen: (old, current) => old is AuthenticationLoadingState && current is AuthenticationErrorState,
         bloc: authBloc,
         builder: (context, state) {
-          final fieldsEnabled = state is! AuthenticationLoadedState;
+          final fieldsEnabled = state is! AuthenticationLoadingState;
 
           return Stack(
             children: [
@@ -66,7 +66,7 @@ class _LoginForm extends HookWidget with TextFieldHooksMixin {
                 Positioned.fill(
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-                    child: const CircularProgressIndicator.adaptive(),
+                    child: const Center(child: CircularProgressIndicator.adaptive()),
                   ),
                 ),
             ],

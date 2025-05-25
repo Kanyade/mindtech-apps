@@ -1,3 +1,4 @@
+import 'package:io_mindtechapps_hw/app/domain/transactions/repository.dart';
 import 'package:io_mindtechapps_hw/core/authentication/authentication.dart';
 import 'package:io_mindtechapps_hw/core/di/di_module.dart';
 import 'package:io_mindtechapps_hw/core/router/router.dart';
@@ -17,6 +18,7 @@ class NavigationDiModule extends DiModule {
       ..registerSingleton(
         MindtechAppRouter(
           getIt.get<CrashlyticsRepository>(),
+          getIt.get<UserSettingsRepository>(),
           getIt.get<AnalyticsRepository>(),
           getIt.get<AuthenticationRepository>(),
           getIt.get<RoutesBuilder>(),

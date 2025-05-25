@@ -31,25 +31,23 @@ class MindtechApp extends HookWidget {
         designSize: const Size(AppDimensions.UI_DESIGN_SIZE_WIDTH, AppDimensions.UI_DESIGN_SIZE_HEIGHT),
         minTextAdapt: true,
         fontSizeResolver: FontSizeResolvers.radius,
-        builder:
-            (context, _) => MediaQuery(
-              data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
-              child: MaterialApp.router(
-                scrollBehavior: _CustomScrollBehavior(),
-                debugShowCheckedModeBanner: false,
-                localizationsDelegates: const [
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                builder:
-                    (context, child) =>
-                        UpgradeAlert(navigatorKey: _router.router.routerDelegate.navigatorKey, child: child),
-                title: 'App Skeleton',
-                theme: AppTheme.defaultTheme,
-                routerConfig: _router.router,
-              ),
-            ),
+        builder: (context, _) => MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
+          child: MaterialApp.router(
+            scrollBehavior: _CustomScrollBehavior(),
+            debugShowCheckedModeBanner: false,
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            builder: (context, child) =>
+                UpgradeAlert(navigatorKey: _router.router.routerDelegate.navigatorKey, child: child),
+            title: 'App Skeleton',
+            theme: AppTheme.defaultTheme,
+            routerConfig: _router.router,
+          ),
+        ),
       ),
     );
   }

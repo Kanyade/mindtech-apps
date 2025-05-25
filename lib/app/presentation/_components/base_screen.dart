@@ -30,12 +30,13 @@ class BaseScreen extends HookWidget {
       [backgroundDecoration, backgroundColor],
     );
 
-    final resolvedBody = useMemoized(
+    /*final resolvedBody = useMemoized(
       () => onRefresh != null
           ? RefreshIndicator.adaptive(displacement: AppDimensions.h80, onRefresh: onRefresh!, child: body)
           : body,
       [body.key],
-    );
+    );*/
+    final resolvedBody = body;
 
     return Stack(
       children: [

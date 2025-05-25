@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:io_mindtechapps_hw/app/domain/transactions/bloc/bloc.dart';
+import 'package:io_mindtechapps_hw/app/domain/transactions/repository.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/bottom_navigation_menu.dart';
 import 'package:io_mindtechapps_hw/app/presentation/authenticated/settings/screen.dart';
 import 'package:io_mindtechapps_hw/app/presentation/authenticated/transactions/screen.dart';
@@ -26,6 +28,7 @@ enum BottomNavigationTab { transactions, settings }
 
 class MindtechAppRouter {
   final CrashlyticsRepository _crashlyticsRepository;
+  final UserSettingsRepository _userSettingsRepository;
   final AnalyticsRepository _analyticsRepository;
   final AuthenticationRepository _authenticationRepository;
   final RoutesBuilder _routeBuilders;
@@ -37,6 +40,7 @@ class MindtechAppRouter {
 
   MindtechAppRouter(
     this._crashlyticsRepository,
+    this._userSettingsRepository,
     this._analyticsRepository,
     this._authenticationRepository,
     this._routeBuilders, [
@@ -110,7 +114,17 @@ class MindtechAppRouter {
   StatefulShellBranch _settingsBranch() {
     return StatefulShellBranch(
       initialLocation: Routes.settings,
-      routes: [GoRoute(path: Routes.settings, name: Routes.settings, builder: _routeBuilders.settingsScreenBuilder)],
+      routes: [
+        routeWithBloc(
+          path: Routes.settings,
+          providers: [
+            BlocProvider<UserSettingsBloc>(
+              create: (_) => UserSettingsBloc(_userSettingsRepository)..add(const UserSettingsLoadEvent()),
+            ),
+          ],
+          builder: _routeBuilders.settingsScreenBuilder,
+        ),
+      ],
       observers: [_analyticsRepository.navigatorObserver],
     );
   }

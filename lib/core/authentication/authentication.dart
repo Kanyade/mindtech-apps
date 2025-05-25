@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert' show jsonDecode, jsonEncode;
 
 import 'package:dio/dio.dart';
+import 'package:io_mindtechapps_hw/core/authentication/models/get_account_request.jsn.dart';
 import 'package:io_mindtechapps_hw/core/authentication/models/user_account.jsn.dart';
 import 'package:io_mindtechapps_hw/core/bloc_base/base_bloc.dart';
 import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';

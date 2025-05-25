@@ -6,6 +6,7 @@ import 'package:io_mindtechapps_hw/core/di/navigation_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/settings_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/user_interaction_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/user_preferences_di_module.dart';
+import 'package:io_mindtechapps_hw/core/di/user_settings_di_module.dart';
 import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 
 sealed class Bootstrapper {
@@ -21,6 +22,7 @@ sealed class Bootstrapper {
       AuthenticationDiModule(),
       UserInteractionDiModule(),
       SettingsDiModule(),
+      UserSettingsDiModule(),
       NavigationDiModule(),
     ];
 

@@ -78,7 +78,7 @@ class AuthenticationRepository implements DisposableRepository {
 
   Future<Result<UserAccount, AuthenticationError>> login({required String email, required String password}) async {
     try {
-      final response = await _http.get('/users', queryParameters: {'email': email});
+      final response = await _http.get('/users', queryParameters: GetAccountRequest(email: email).toJson());
 
       if (response.isSuccessStatusCode) {
         final List<dynamic> users = response.data;

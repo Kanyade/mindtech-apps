@@ -66,39 +66,38 @@ class BottomNavigationMenu extends HookWidget {
     return PopScope(
       canPop: false,
       child: Builder(
-        builder:
-            (context) => Scaffold(
-              resizeToAvoidBottomInset: false,
-              bottomNavigationBar: BottomNavigationBar(
-                currentIndex: navigationShell.currentIndex,
-                onTap: (index) {
-                  navigationShell.goBranch(index, initialLocation: index == navigationShell.currentIndex);
-                },
-                unselectedLabelStyle: AppTextStyles.uiLabelSmall,
-                selectedLabelStyle: AppTextStyles.uiLabelSmall,
-                selectedItemColor: AppColors.primary,
-                unselectedItemColor: AppColors.gray40,
-                type: BottomNavigationBarType.fixed,
-                backgroundColor: AppColors.white,
-                items: tabs
-                    .map((e) {
-                      return switch (e) {
-                        BottomNavigationTab.transactions => BottomNavigationBarItem(
-                          label: 'Transactions'.hardCoded,
-                          icon: Icon(Icons.home_outlined, size: iconSize, color: AppColors.gray75),
-                          activeIcon: Icon(Icons.home_outlined, size: iconSize, color: AppColors.primary),
-                        ),
-                        BottomNavigationTab.settings => BottomNavigationBarItem(
-                          label: 'Settings'.hardCoded,
-                          icon: Icon(Icons.account_circle_outlined, size: iconSize, color: AppColors.gray75),
-                          activeIcon: Icon(Icons.account_circle_outlined, size: iconSize, color: AppColors.primary),
-                        ),
-                      };
-                    })
-                    .toList(growable: false),
-              ),
-              body: navigationShell,
-            ),
+        builder: (context) => Scaffold(
+          resizeToAvoidBottomInset: false,
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: navigationShell.currentIndex,
+            onTap: (index) {
+              navigationShell.goBranch(index, initialLocation: index == navigationShell.currentIndex);
+            },
+            unselectedLabelStyle: AppTextStyles.uiLabelSmall,
+            selectedLabelStyle: AppTextStyles.uiLabelSmall,
+            selectedItemColor: AppColors.primary,
+            unselectedItemColor: AppColors.gray40,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: AppColors.white,
+            items: tabs
+                .map((e) {
+                  return switch (e) {
+                    BottomNavigationTab.transactions => BottomNavigationBarItem(
+                      label: 'Transactions'.hardCoded,
+                      icon: Icon(Icons.swap_horiz, size: iconSize, color: AppColors.gray75),
+                      activeIcon: Icon(Icons.swap_horiz, size: iconSize, color: AppColors.primary),
+                    ),
+                    BottomNavigationTab.settings => BottomNavigationBarItem(
+                      label: 'Settings'.hardCoded,
+                      icon: Icon(Icons.settings, size: iconSize, color: AppColors.gray75),
+                      activeIcon: Icon(Icons.settings, size: iconSize, color: AppColors.primary),
+                    ),
+                  };
+                })
+                .toList(growable: false),
+          ),
+          body: navigationShell,
+        ),
       ),
     );
   }

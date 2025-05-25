@@ -39,7 +39,7 @@ class LoginScreen extends StatelessWidget {
           ),
           SizedBox(height: AppDimensions.h32),
           const Expanded(child: _LoginForm()),
-          _Footer(settings: settings),
+          _Footer(showText: MediaQuery.viewInsetsOf(context).bottom < 70, settings: settings),
         ],
       ),
     );

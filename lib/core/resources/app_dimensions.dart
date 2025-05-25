@@ -42,6 +42,7 @@ abstract final class AppDimensions {
   static final r16 = ScreenUtil().radius(16);
   static final r24 = ScreenUtil().radius(24);
   static final r32 = ScreenUtil().radius(32);
+  static final r120 = ScreenUtil().radius(120);
   static final r9999 = ScreenUtil().radius(9999);
 
   static final f12 = ScreenUtil().setSp(12);
