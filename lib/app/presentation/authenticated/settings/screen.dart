@@ -33,7 +33,10 @@ class SettingsScreen extends StatelessWidget {
             return Column(
               spacing: AppDimensions.h32,
               children: [
-                Text('Settings'.hardCoded, style: AppTextStyles.mobileHeadersHeaderMobile3),
+                Text(
+                  'Settings'.hardCoded,
+                  style: AppTextStyles.mobileHeadersHeaderMobile3.copyWith(color: AppColors.primary),
+                ),
                 Expanded(
                   child: SizedBox.expand(
                     child: Row(
@@ -68,24 +71,12 @@ class SettingsScreen extends StatelessWidget {
                                   imageUrl: state.userAccount.profilePicture,
                                   width: AppDimensions.r120,
                                   height: AppDimensions.r120,
-                                  progressIndicatorBuilder: (_, _, _) => ShimmerContainer(
-                                    height: AppDimensions.r120,
-                                    width: AppDimensions.r120,
-                                    radius: AppDimensions.r4,
-                                  ),
-                                  errorWidget: (_, _, _) => ShimmerContainer(
-                                    height: AppDimensions.r120,
-                                    width: AppDimensions.r120,
-                                    radius: AppDimensions.r4,
-                                  ),
+                                  progressIndicatorBuilder: (_, _, _) => const _ImagePlaceholder(),
+                                  errorWidget: (_, _, _) => const _ImagePlaceholder(),
                                 ),
                               );
                             } else {
-                              return ShimmerContainer(
-                                height: AppDimensions.r120,
-                                width: AppDimensions.r120,
-                                radius: AppDimensions.r4,
-                              );
+                              return const _ImagePlaceholder();
                             }
                           },
                         ),
@@ -127,6 +118,15 @@ class SettingsScreen extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+class _ImagePlaceholder extends StatelessWidget {
+  const _ImagePlaceholder();
+
+  @override
+  Widget build(BuildContext context) {
+    return ShimmerContainer(height: AppDimensions.r120, width: AppDimensions.r120, radius: AppDimensions.r4);
   }
 }
 

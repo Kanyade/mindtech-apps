@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
-import 'package:io_mindtechapps_hw/app/domain/transactions/bloc/models/model.jsn.dart';
+import 'package:io_mindtechapps_hw/app/domain/transactions/models/model.jsn.dart';
 import 'package:io_mindtechapps_hw/app/domain/user_settings/models/get_settings_request.jsn.dart';
 import 'package:io_mindtechapps_hw/core/authentication/authentication.dart';
 import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';

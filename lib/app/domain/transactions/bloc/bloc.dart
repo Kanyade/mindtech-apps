@@ -1,4 +1,4 @@
-import 'package:io_mindtechapps_hw/app/domain/transactions/bloc/models/model.jsn.dart';
+import 'package:io_mindtechapps_hw/app/domain/transactions/models/model.jsn.dart';
 import 'package:io_mindtechapps_hw/app/domain/transactions/repository.dart';
 import 'package:io_mindtechapps_hw/core/bloc_base/base_bloc.dart';
 import 'package:io_mindtechapps_hw/core/utils/extensions/safe_event_adding.dart';

@@ -23,6 +23,7 @@ abstract final class AppDimensions {
   static final h80 = ScreenUtil().setHeight(80);
   static final h88 = ScreenUtil().setHeight(88);
   static final h104 = ScreenUtil().setHeight(104);
+  static final h160 = ScreenUtil().setHeight(160);
 
   static final w2 = ScreenUtil().setWidth(2);
   static final w4 = ScreenUtil().setWidth(4);

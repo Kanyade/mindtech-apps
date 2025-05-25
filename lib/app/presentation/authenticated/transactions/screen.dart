@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:io_mindtechapps_hw/app/domain/transactions/bloc/bloc.dart';
+import 'package:io_mindtechapps_hw/app/domain/transactions/models/model.jsn.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/base_screen.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/screen_error_display.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/shimmer_container.dart';
@@ -8,6 +11,8 @@ import 'package:io_mindtechapps_hw/core/authentication/authentication.dart';
 import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:io_mindtechapps_hw/core/utils/date_formatters.dart';
 import 'package:io_mindtechapps_hw/core/utils/extensions/string_extensions.dart';
+
+part '_components/transaction_tile.dart';
 
 class TransactionsScreen extends StatelessWidget {
   const TransactionsScreen({super.key});
@@ -28,7 +33,12 @@ class TransactionsScreen extends StatelessWidget {
               spacing: AppDimensions.h32,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(child: Text('Transactions'.hardCoded, style: AppTextStyles.mobileHeadersHeaderMobile3)),
+                Center(
+                  child: Text(
+                    'Transactions'.hardCoded,
+                    style: AppTextStyles.mobileHeadersHeaderMobile3.copyWith(color: AppColors.primary),
+                  ),
+                ),
                 BlocBuilder<AuthenticationBloc, AuthenticationState>(
                   builder: (context, state) {
                     if (state is AuthenticationLoadedState) {
@@ -56,21 +66,13 @@ class TransactionsScreen extends StatelessWidget {
                 Expanded(
                   child: state.transactions.isNotEmpty
                       ? ListView.separated(
+                          padding: EdgeInsets.zero,
                           itemCount: state.transactions.length,
                           separatorBuilder: (_, _) =>
                               Divider(thickness: 0, indent: AppDimensions.w24, endIndent: AppDimensions.w24),
                           itemBuilder: (context, index) {
                             final transaction = state.transactions[index];
-                            return ListTile(
-                              title: Text(DateFormatters.yyyyMMdd.format(transaction.date)),
-                              subtitle: Text(transaction.merchant),
-                              trailing: Text(
-                                '${transaction.amount.toStringAsFixed(2)} ${transaction.currency}',
-                                style: AppTextStyles.uiLabelSmallBold.copyWith(
-                                  color: transaction.amount < 0 ? AppColors.warning : AppColors.success,
-                                ),
-                              ),
-                            );
+                            return _TransactionTile(transaction: transaction);
                           },
                         )
                       : Center(
