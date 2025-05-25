@@ -4,6 +4,7 @@ import 'package:io_mindtechapps_hw/core/di/di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/http_client_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/navigation_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/settings_di_module.dart';
+import 'package:io_mindtechapps_hw/core/di/transactions_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/user_interaction_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/user_preferences_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/user_settings_di_module.dart';
@@ -23,6 +24,7 @@ sealed class Bootstrapper {
       UserInteractionDiModule(),
       SettingsDiModule(),
       UserSettingsDiModule(),
+      TransactionsDiModule(),
       NavigationDiModule(),
     ];
 

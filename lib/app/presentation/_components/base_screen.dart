@@ -12,7 +12,6 @@ class BaseScreen extends HookWidget {
     this.backgroundColor,
     this.backgroundDecoration,
     this.actions,
-    this.onRefresh,
   });
 
   final String? title;
@@ -21,7 +20,6 @@ class BaseScreen extends HookWidget {
   final Color? backgroundColor;
   final BoxDecoration? backgroundDecoration;
   final List<Widget>? actions;
-  final Future<void> Function()? onRefresh;
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +27,6 @@ class BaseScreen extends HookWidget {
       () => backgroundDecoration != null ? AppColors.transparent : backgroundColor ?? AppColors.background,
       [backgroundDecoration, backgroundColor],
     );
-
-    /*final resolvedBody = useMemoized(
-      () => onRefresh != null
-          ? RefreshIndicator.adaptive(displacement: AppDimensions.h80, onRefresh: onRefresh!, child: body)
-          : body,
-      [body.key],
-    );*/
-    final resolvedBody = body;
 
     return Stack(
       children: [
@@ -49,7 +39,7 @@ class BaseScreen extends HookWidget {
               : _NavigatableAppBar(title: title ?? '', actions: actions, backgroundColor: extractedBGColor),
           body: Padding(
             padding: EdgeInsets.symmetric(vertical: AppDimensions.h16, horizontal: AppDimensions.w24),
-            child: resolvedBody,
+            child: body,
           ),
         ),
       ],

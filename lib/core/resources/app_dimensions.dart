@@ -34,6 +34,7 @@ abstract final class AppDimensions {
   static final w40 = ScreenUtil().setWidth(40);
   static final w48 = ScreenUtil().setWidth(48);
   static final w56 = ScreenUtil().setWidth(56);
+  static final w160 = ScreenUtil().setWidth(160);
 
   static final r2 = ScreenUtil().radius(2);
   static final r4 = ScreenUtil().radius(4);

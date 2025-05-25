@@ -1,11 +1,11 @@
 part of 'bloc.dart';
 
-sealed class UserSettingsEvent implements BaseEvent {
-  const UserSettingsEvent();
+sealed class TransactionsEvent implements BaseEvent {
+  const TransactionsEvent();
 }
 
-class UserSettingsLoadEvent extends UserSettingsEvent implements RefreshEvent {
-  const UserSettingsLoadEvent({this.forceRefresh = false});
+class TransactionsLoadEvent extends TransactionsEvent implements RefreshEvent {
+  const TransactionsLoadEvent({this.forceRefresh = false});
 
   @override
   final bool forceRefresh;

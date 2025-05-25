@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:io_mindtechapps_hw/app/domain/transactions/bloc/bloc.dart';
+import 'package:io_mindtechapps_hw/app/domain/user_settings/bloc/bloc.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/base_screen.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/screen_error_display.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/shimmer_container.dart';
@@ -31,13 +31,33 @@ class SettingsScreen extends StatelessWidget {
           } else if (state is UserSettingsLoadedState) {
             final usersettings = state.settings;
             return Column(
+              spacing: AppDimensions.h32,
               children: [
+                Text('Settings'.hardCoded, style: AppTextStyles.mobileHeadersHeaderMobile3),
                 Expanded(
                   child: SizedBox.expand(
-                    child: Column(
-                      spacing: AppDimensions.h16,
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Expanded(
+                          child: Column(
+                            spacing: AppDimensions.h16,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _LabeledItem(label: 'User ID:'.hardCoded, value: usersettings.userId.toString()),
+                              _LabeledItem(
+                                label: 'Notifications enabled:'.hardCoded,
+                                value: usersettings.notificationsEnabled ? 'Yes'.hardCoded : 'No'.hardCoded,
+                              ),
+                              _LabeledItem(label: 'Limit:'.hardCoded, value: usersettings.limit.toString()),
+                              _LabeledItem(label: 'Currency:'.hardCoded, value: usersettings.currency.toString()),
+                              _LabeledItem(
+                                label: 'Biometrics enabled:'.hardCoded,
+                                value: usersettings.biometricEnabled ? 'Yes'.hardCoded : 'No'.hardCoded,
+                              ),
+                            ],
+                          ),
+                        ),
                         BlocBuilder<AuthenticationBloc, AuthenticationState>(
                           builder: (context, state) {
                             if (state is AuthenticationLoadedState) {
@@ -68,18 +88,6 @@ class SettingsScreen extends StatelessWidget {
                               );
                             }
                           },
-                        ),
-
-                        _LabeledItem(label: 'User ID:'.hardCoded, value: usersettings.userId.toString()),
-                        _LabeledItem(
-                          label: 'Notifications enabled:'.hardCoded,
-                          value: usersettings.notificationsEnabled ? 'Yes'.hardCoded : 'No'.hardCoded,
-                        ),
-                        _LabeledItem(label: 'Limit:'.hardCoded, value: usersettings.limit.toString()),
-                        _LabeledItem(label: 'Currency:'.hardCoded, value: usersettings.currency.toString()),
-                        _LabeledItem(
-                          label: 'Biometrics enabled:'.hardCoded,
-                          value: usersettings.biometricEnabled ? 'Yes'.hardCoded : 'No'.hardCoded,
                         ),
                       ],
                     ),

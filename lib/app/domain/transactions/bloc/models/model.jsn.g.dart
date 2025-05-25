@@ -6,18 +6,28 @@ part of 'model.jsn.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserSettings _$UserSettingsFromJson(Map<String, dynamic> json) => UserSettings(
+Transaction _$TransactionFromJson(Map<String, dynamic> json) => Transaction(
+  id: (json['id'] as num).toInt(),
   userId: (json['userId'] as num).toInt(),
-  notificationsEnabled: json['notifications_enabled'] as bool,
-  limit: (json['limit'] as num).toInt(),
+  amount: (json['amount'] as num).toDouble(),
+  description: json['description'] as String,
+  merchant: json['merchant'] as String,
+  date: DateTime.parse(json['date'] as String),
   currency: json['currency'] as String,
-  biometricEnabled: json['biometric_enabled'] as bool,
+  category: json['category'] as String,
+  fromAccount: json['from_account'] as String,
+  toAccount: json['to_account'] as String,
 );
 
-Map<String, dynamic> _$UserSettingsToJson(UserSettings instance) => <String, dynamic>{
+Map<String, dynamic> _$TransactionToJson(Transaction instance) => <String, dynamic>{
+  'id': instance.id,
   'userId': instance.userId,
-  'notifications_enabled': instance.notificationsEnabled,
-  'limit': instance.limit,
+  'date': instance.date.toIso8601String(),
+  'merchant': instance.merchant,
+  'amount': instance.amount,
+  'description': instance.description,
   'currency': instance.currency,
-  'biometric_enabled': instance.biometricEnabled,
+  'category': instance.category,
+  'from_account': instance.fromAccount,
+  'to_account': instance.toAccount,
 };

@@ -1,18 +1,18 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
-import 'package:io_mindtechapps_hw/app/domain/transactions/bloc/models/model.jsn.dart';
 import 'package:io_mindtechapps_hw/app/domain/user_settings/models/get_settings_request.jsn.dart';
+import 'package:io_mindtechapps_hw/app/domain/user_settings/models/model.jsn.dart';
 import 'package:io_mindtechapps_hw/core/authentication/authentication.dart';
 import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/services/http/dio_extensions.dart';
 import 'package:io_mindtechapps_hw/core/utils/disposable_refresh_repository.dart';
 import 'package:io_mindtechapps_hw/core/utils/result.dart';
 
-enum TransactionsError { unknownError }
+enum UserSettingsError { unknownError }
 
-class TransactionsRepository implements DisposableRefreshRepository {
-  TransactionsRepository({
+class UserSettingsRepository implements DisposableRefreshRepository {
+  UserSettingsRepository({
     required Dio http,
     required AuthenticationRepository authenticationRepository,
     required CrashlyticsRepository crashlytics,
@@ -24,47 +24,46 @@ class TransactionsRepository implements DisposableRefreshRepository {
   final AuthenticationRepository _authenticationRepository;
   final CrashlyticsRepository _crashlytics;
 
-  List<Transaction>? _latestTransactions;
-  List<Transaction>? get cachedSettings => _latestTransactions == null ? null : [..._latestTransactions!];
+  UserSettings? _latestUserSettings;
+  UserSettings? get cachedSettings =>
+      _latestUserSettings == null ? null : UserSettings.fromJson(_latestUserSettings!.toJson());
 
-  Future<Result<List<Transaction>, TransactionsError>> getTransactions({bool forceRefresh = false}) async {
-    if (forceRefresh || _latestTransactions == null) {
-      return refreshTransactions();
+  Future<Result<UserSettings, UserSettingsError>> getLatestSettings({bool forceRefresh = false}) async {
+    if (forceRefresh || _latestUserSettings == null) {
+      return refreshSettings();
     } else {
-      return ResultData(_latestTransactions!);
+      return ResultData(_latestUserSettings!);
     }
   }
 
-  Future<Result<List<Transaction>, TransactionsError>> refreshTransactions() async {
+  Future<Result<UserSettings, UserSettingsError>> refreshSettings() async {
     try {
       final userId = _authenticationRepository.cachedProfile?.id;
       if (userId == null) throw Exception('User ID is null, cannot fetch settings');
-      final response = await _http.get('/transactions', queryParameters: GetSettingsRequest(userId: userId).toJson());
+      final response = await _http.get('/settings', queryParameters: GetSettingsRequest(userId: userId).toJson());
 
       if (response.isSuccessStatusCode) {
-        final transactions = (response.data as List)
-            .map((json) => Transaction.fromJson(json as Map<String, dynamic>))
-            .toList();
+        final settings = UserSettings.fromJson(response.data);
 
-        _latestTransactions = transactions;
+        _latestUserSettings = settings;
 
-        return ResultData(transactions);
+        return ResultData(settings);
       } else {
         throw DioException(
           requestOptions: response.requestOptions,
           response: response,
-          error: 'Failed to refresh transactions',
+          error: 'Failed to refresh settings',
           message: response.statusMessage,
         );
       }
     } catch (e, st) {
       unawaited(_crashlytics.recordError(exception: e, stackTrace: st));
-      return const ResultError(TransactionsError.unknownError);
+      return const ResultError(UserSettingsError.unknownError);
     }
   }
 
   @override
-  Future<void> refresh() => refreshTransactions();
+  Future<void> refresh() => refreshSettings();
 
   @override
   Future<void> onDispose() => Future.value();

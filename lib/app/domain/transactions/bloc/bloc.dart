@@ -7,19 +7,21 @@ import 'package:io_mindtechapps_hw/core/utils/result.dart';
 part 'event.dart';
 part 'state.dart';
 
-class UserSettingsBloc extends BaseBloc<UserSettingsEvent, UserSettingsState> with SafeAddingMixin {
-  final UserSettingsRepository _repository;
+class TransactionsBloc extends BaseBloc<TransactionsEvent, TransactionsState> with SafeAddingMixin {
+  final TransactionsRepository _repository;
 
-  UserSettingsBloc(this._repository) : super(const UserSettingsInitialState()) {
-    on<UserSettingsLoadEvent>((event, emit) async {
-      if (event.forceRefresh || state is! UserSettingsLoadedState) {
-        emit(const UserSettingsLoadingState());
+  TransactionsBloc(this._repository) : super(const TransactionsInitialState()) {
+    on<TransactionsLoadEvent>((event, emit) async {
+      if (event.forceRefresh || state is! TransactionsLoadedState) {
+        emit(const TransactionsLoadingState());
 
-        final result = await _repository.getLatestSettings(forceRefresh: event.forceRefresh);
+        final result = await _repository.getTransactions(forceRefresh: event.forceRefresh);
 
         emitSafe(emit, switch (result) {
-          ResultData<UserSettings, UserSettingsError>(:final value) => UserSettingsLoadedState(settings: value),
-          ResultError(:final exception) => UserSettingsErrorState(exception: exception),
+          ResultData<List<Transaction>, TransactionsError>(:final value) => TransactionsLoadedState(
+            transactions: value,
+          ),
+          ResultError(:final exception) => TransactionsErrorState(exception: exception),
         });
       }
     });

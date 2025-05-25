@@ -1,35 +1,35 @@
 part of 'bloc.dart';
 
-sealed class UserSettingsState extends BaseState {
-  const UserSettingsState();
+sealed class TransactionsState extends BaseState {
+  const TransactionsState();
 
   @override
   List<Object?> get props => [];
 }
 
-final class UserSettingsInitialState extends UserSettingsState {
-  const UserSettingsInitialState();
+final class TransactionsInitialState extends TransactionsState {
+  const TransactionsInitialState();
 }
 
-final class UserSettingsLoadingState extends UserSettingsState {
-  const UserSettingsLoadingState();
+final class TransactionsLoadingState extends TransactionsState {
+  const TransactionsLoadingState();
 }
 
-final class UserSettingsErrorState extends UserSettingsState implements ErrorState<UserSettingsError> {
-  const UserSettingsErrorState({required this.exception});
+final class TransactionsErrorState extends TransactionsState implements ErrorState<TransactionsError> {
+  const TransactionsErrorState({required this.exception});
 
   @override
-  final UserSettingsError exception;
+  final TransactionsError exception;
 
   @override
   List<Object> get props => [exception];
 }
 
-final class UserSettingsLoadedState extends UserSettingsState {
-  const UserSettingsLoadedState({required this.settings});
+final class TransactionsLoadedState extends TransactionsState {
+  const TransactionsLoadedState({required this.transactions});
 
-  final UserSettings settings;
+  final List<Transaction> transactions;
 
   @override
-  List<Object> get props => [settings];
+  List<Object> get props => [transactions];
 }
