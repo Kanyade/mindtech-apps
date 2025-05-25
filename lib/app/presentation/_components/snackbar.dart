@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 
-enum SnackbarType { error, attention, success }
+enum SnackbarType { error, success }
 
 void showSnackbar<T>({
   required BuildContext context,
@@ -12,12 +12,11 @@ void showSnackbar<T>({
 }) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      content: Text(text, style: AppTextStyles.uiLabelSmall),
+      content: Text(text, style: AppTextStyles.uiLabelSmall.copyWith(color: AppColors.white)),
       showCloseIcon: true,
       backgroundColor: switch (type) {
         SnackbarType.success => AppColors.success,
         SnackbarType.error => AppColors.warning,
-        SnackbarType.attention => AppColors.attention,
       },
       behavior: behavior,
     ),

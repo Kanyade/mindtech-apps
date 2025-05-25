@@ -106,7 +106,7 @@ abstract final class _AppButtonFillThemes {
 abstract final class _AppButtonShapeThemes {
   static const iconStyle = ButtonStyle(shape: WidgetStatePropertyAll(CircleBorder()));
   static final standardStyle = ButtonStyle(
-    shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.r24))),
+    shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.r8))),
   );
 }
 
@@ -114,7 +114,8 @@ abstract final class _AppButtonShapeThemes {
 //! Main Button Themes
 //!
 abstract final class AppButtonThemes {
-  static final _buttonTextStyle = WidgetStatePropertyAll(AppTextStyles.uiLabelSmall);
+  static final _buttonTextStyle = WidgetStatePropertyAll(AppTextStyles.uiLabel);
+  static final _boldButtonTextStyle = WidgetStatePropertyAll(AppTextStyles.uiLabelBold);
   static const _minimumSize = WidgetStatePropertyAll(Size.zero);
 
   static final defaultIconButton = IconButtonThemeData(
@@ -125,7 +126,7 @@ abstract final class AppButtonThemes {
       foregroundColor: _AppButtonFillThemes.filledStyle.foregroundColor,
       backgroundColor: _AppButtonFillThemes.filledStyle.backgroundColor,
       iconColor: _AppButtonFillThemes.filledStyle.iconColor,
-      textStyle: _buttonTextStyle,
+      textStyle: _boldButtonTextStyle,
       minimumSize: _minimumSize,
     ),
   );
@@ -137,7 +138,7 @@ abstract final class AppButtonThemes {
     foregroundColor: _AppButtonFillThemes.outlinedStyle.foregroundColor,
     backgroundColor: _AppButtonFillThemes.outlinedStyle.backgroundColor,
     iconColor: _AppButtonFillThemes.outlinedStyle.iconColor,
-    textStyle: _buttonTextStyle,
+    textStyle: _boldButtonTextStyle,
     minimumSize: _minimumSize,
   );
 
@@ -160,7 +161,7 @@ abstract final class AppButtonThemes {
       foregroundColor: _AppButtonFillThemes.filledStyle.foregroundColor,
       backgroundColor: _AppButtonFillThemes.filledStyle.backgroundColor,
       iconColor: _AppButtonFillThemes.filledStyle.iconColor,
-      textStyle: _buttonTextStyle,
+      textStyle: _boldButtonTextStyle,
       minimumSize: _minimumSize,
     ),
   );
@@ -172,7 +173,7 @@ abstract final class AppButtonThemes {
       side: _AppButtonFillThemes.outlinedStyle.side,
       foregroundColor: _AppButtonFillThemes.outlinedStyle.foregroundColor,
       iconColor: _AppButtonFillThemes.outlinedStyle.iconColor,
-      textStyle: _buttonTextStyle,
+      textStyle: _boldButtonTextStyle,
       minimumSize: _minimumSize,
     ),
   );

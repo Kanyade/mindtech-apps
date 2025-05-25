@@ -52,10 +52,10 @@ class AuthenticationRepository implements DisposableRepository {
   final _userAccountSubject = BehaviorSubject<UserAccount?>();
   UserAccount? get cachedProfile => _userAccountSubject.valueOrNull;
 
-  late final Stream<AuthStatus> authStream = _userAccountSubject.distinct().map((account) {
+  late final ValueStream<AuthStatus> authStream = _userAccountSubject.distinct().map((account) {
     if (account == null) return AuthStatus.unauthenticated;
     return AuthStatus.authenticated;
-  });
+  }).shareValue();
 
   //
   // FUNCTIONS

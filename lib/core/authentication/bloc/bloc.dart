@@ -3,7 +3,12 @@ part of '../authentication.dart';
 class AuthenticationBloc extends BaseBloc<AuthenticationEvent, AuthenticationState> {
   final AuthenticationRepository _authenticationRepository;
 
-  AuthenticationBloc(this._authenticationRepository) : super(const AuthenticationInitialState()) {
+  AuthenticationBloc(this._authenticationRepository)
+    : super(
+        _authenticationRepository.cachedProfile == null
+            ? const AuthenticationInitialState()
+            : AuthenticationLoadedState(userAccount: _authenticationRepository.cachedProfile!),
+      ) {
     on<AuthenticationLoginEvent>((event, emit) async {
       emit(const AuthenticationLoadingState());
       final result = await _authenticationRepository.login(email: event.email, password: event.password);

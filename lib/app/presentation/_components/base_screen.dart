@@ -26,7 +26,7 @@ class BaseScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final extractedBGColor = useMemoized(
-      () => backgroundDecoration != null ? AppColors.transparent : backgroundColor ?? AppColors.white,
+      () => backgroundDecoration != null ? AppColors.transparent : backgroundColor ?? AppColors.background,
       [backgroundDecoration, backgroundColor],
     );
 
@@ -42,11 +42,14 @@ class BaseScreen extends HookWidget {
         if (backgroundDecoration != null) Positioned.fill(child: DecoratedBox(decoration: backgroundDecoration!)),
         Scaffold(
           backgroundColor: extractedBGColor,
-          resizeToAvoidBottomInset: false,
+          resizeToAvoidBottomInset: true,
           appBar: isRootScreen
               ? _GeneralAppbar(title: title ?? '', backroundColor: extractedBGColor)
               : _NavigatableAppBar(title: title ?? '', actions: actions, backgroundColor: extractedBGColor),
-          body: resolvedBody,
+          body: Padding(
+            padding: EdgeInsets.symmetric(vertical: AppDimensions.h16, horizontal: AppDimensions.w24),
+            child: resolvedBody,
+          ),
         ),
       ],
     );

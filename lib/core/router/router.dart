@@ -5,17 +5,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:io_mindtechapps_hw/app/domain/profile/bloc/bloc.dart';
-import 'package:io_mindtechapps_hw/app/domain/profile/repository.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/bottom_navigation_menu.dart';
 import 'package:io_mindtechapps_hw/app/presentation/authenticated/settings/screen.dart';
 import 'package:io_mindtechapps_hw/app/presentation/authenticated/transactions/screen.dart';
 import 'package:io_mindtechapps_hw/app/presentation/login/screen.dart';
+import 'package:io_mindtechapps_hw/core/authentication/authentication.dart';
 import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
+import 'package:io_mindtechapps_hw/core/services/settings.dart';
 import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:rxdart/rxdart.dart';
 
 part 'navigator_keys.dart';
 part 'routes.dart';
@@ -26,7 +27,7 @@ enum BottomNavigationTab { transactions, settings }
 class MindtechAppRouter {
   final CrashlyticsRepository _crashlyticsRepository;
   final AnalyticsRepository _analyticsRepository;
-  final UserProfileRepository _profileDetailsRepository;
+  final AuthenticationRepository _authenticationRepository;
   final RoutesBuilder _routeBuilders;
 
   late final GoRouter _router;
@@ -37,17 +38,33 @@ class MindtechAppRouter {
   MindtechAppRouter(
     this._crashlyticsRepository,
     this._analyticsRepository,
-    this._profileDetailsRepository,
+    this._authenticationRepository,
     this._routeBuilders, [
     this._mainTabs = BottomNavigationTab.values,
   ]) {
     MindtechAppLogger.logSuccess('MindtechAppRouter: Starting...');
 
+    final listenable = _GoRouterRefreshStreamForAuthentication(_authenticationRepository.authStream);
+
     _router = GoRouter(
       debugLogDiagnostics: kDebugMode,
       observers: [_analyticsRepository.navigatorObserver],
       navigatorKey: MindtechAppNavigatorKeys.navigationKey,
-      initialLocation: Routes.login,
+      initialLocation: _authenticationRepository.cachedProfile == null ? Routes.login : Routes.transactions,
+      refreshListenable: listenable,
+      redirect: (context, state) {
+        final currentState = listenable.latestValue;
+        final isLatestHandled = listenable.isLatestHandled;
+        if (!isLatestHandled) {
+          listenable.setIsLatestHandled(value: true);
+          if (currentState == AuthStatus.unauthenticated) {
+            return Routes.login;
+          } else if (currentState == AuthStatus.authenticated) {
+            return Routes.transactions;
+          }
+        }
+        return null;
+      },
       onException: (context, state, router) {
         final e = 'MindtechAppRouter: route not found ${state.uri.toString()}';
         if (AppConstants.flavor == AppFlavor.prod) {
@@ -61,16 +78,7 @@ class MindtechAppRouter {
         GoRoute(name: Routes.login, path: Routes.login, builder: _routeBuilders.loginScreenBuilder),
         StatefulShellRoute.indexedStack(
           builder: (_, _, navigationShell) {
-            return AnnotatedRegion(
-              value: AppTheme.authenticatedSystemUiOverlayStyle,
-              child: BlocProvider<UserProfileBloc>(
-                lazy: false,
-                create: (context) {
-                  return UserProfileBloc(_profileDetailsRepository)..add(const UserProfileLoadEvent());
-                },
-                child: _routeBuilders.bottomNavigationBuilder(navigationShell, _mainTabs),
-              ),
-            );
+            return _routeBuilders.bottomNavigationBuilder(navigationShell, _mainTabs);
           },
           branches: _mainTabs
               .map(
@@ -151,5 +159,28 @@ class MindtechAppRouter {
       routes: [GoRoute(path: path, name: path, builder: builder, routes: routes)],
       observers: [observer],
     );
+  }
+}
+
+class _GoRouterRefreshStreamForAuthentication extends ChangeNotifier {
+  _GoRouterRefreshStreamForAuthentication(ValueStream<AuthStatus> stream) {
+    notifyListeners();
+    _subscription = stream.listen((value) {
+      latestValue = value;
+      isLatestHandled = false;
+      notifyListeners();
+    });
+  }
+  late final StreamSubscription<AuthStatus> _subscription;
+
+  AuthStatus? latestValue;
+  bool isLatestHandled = true;
+
+  void setIsLatestHandled({required bool value}) => isLatestHandled = value;
+
+  @override
+  void dispose() {
+    unawaited(_subscription.cancel());
+    super.dispose();
   }
 }

@@ -4,9 +4,9 @@ abstract class AppTheme {
   static const mainFontFamily = FontFamily.jost;
 
   static const SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
-    systemNavigationBarColor: AppColors.inkBlack,
-    systemNavigationBarDividerColor: AppColors.inkBlack,
-    systemNavigationBarIconBrightness: Brightness.light,
+    systemNavigationBarColor: AppColors.white,
+    systemNavigationBarDividerColor: AppColors.white,
+    systemNavigationBarIconBrightness: Brightness.dark,
     systemNavigationBarContrastEnforced: false,
     statusBarColor: AppColors.transparent,
     statusBarIconBrightness: Brightness.dark,
@@ -14,11 +14,6 @@ abstract class AppTheme {
     systemStatusBarContrastEnforced: false,
   );
 
-  static final authenticatedSystemUiOverlayStyle = systemUiOverlayStyle.copyWith(
-    systemNavigationBarColor: AppColors.white,
-    systemNavigationBarDividerColor: AppColors.white,
-    systemNavigationBarIconBrightness: Brightness.dark,
-  );
   static double calcLineHeight({required double lineHeight, required double fontSize}) => lineHeight / fontSize;
 
   static ThemeData get defaultTheme {
@@ -26,11 +21,11 @@ abstract class AppTheme {
       fontFamily: mainFontFamily,
       colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary, primary: AppColors.primary),
       primaryColor: AppColors.primary,
-      scaffoldBackgroundColor: AppColors.white,
+      scaffoldBackgroundColor: AppColors.background,
       appBarTheme: const AppBarTheme(
-        shadowColor: AppColors.white,
+        shadowColor: AppColors.background,
         foregroundColor: AppColors.text,
-        backgroundColor: AppColors.white,
+        backgroundColor: AppColors.background,
         elevation: 0,
         scrolledUnderElevation: 0,
       ),
@@ -38,7 +33,7 @@ abstract class AppTheme {
         elevation: 0,
         width: double.infinity,
         clipBehavior: Clip.none,
-        backgroundColor: AppColors.white,
+        backgroundColor: AppColors.background,
         shadowColor: AppColors.transparent,
       ),
       inputDecorationTheme: AppInputThemes.defaultInputTheme,
@@ -74,7 +69,7 @@ abstract class AppTheme {
         displaySmall: AppTextStyles.mobileDisplayDisplayMobileCaps,
         displayMedium: AppTextStyles.mobileDisplayDisplayMobile2,
         displayLarge: AppTextStyles.mobileDisplayDisplayMobile1,
-      ),
+      ).apply(displayColor: AppColors.text, bodyColor: AppColors.text),
       progressIndicatorTheme: AppProgressIndicatorThemes.defaultLinearIndicatorTheme,
     );
   }

@@ -28,6 +28,7 @@ abstract class AppTextStyles {
   static final TextStyle body = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f18,
+    color: AppColors.text,
     height: 1.56,
     fontWeight: FontWeight.w300,
   );
@@ -43,6 +44,7 @@ abstract class AppTextStyles {
   static final TextStyle bodyBook = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f18,
+    color: AppColors.text,
     height: 1.56,
     fontWeight: FontWeight.w400,
   );
@@ -58,6 +60,7 @@ abstract class AppTextStyles {
   static final TextStyle bodySmall = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f16,
+    color: AppColors.text,
     height: 1.5,
     fontWeight: FontWeight.w400,
   );
@@ -73,6 +76,7 @@ abstract class AppTextStyles {
   static final TextStyle uiLabel = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f16,
+    color: AppColors.text,
     height: 1.5,
     fontWeight: FontWeight.w400,
   );
@@ -88,6 +92,7 @@ abstract class AppTextStyles {
   static final TextStyle uiLabelBold = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f16,
+    color: AppColors.text,
     height: 1.5,
     fontWeight: FontWeight.w700,
   );
@@ -103,6 +108,7 @@ abstract class AppTextStyles {
   static final TextStyle uiLabelLarge = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f18,
+    color: AppColors.text,
     height: 1.33,
     fontWeight: FontWeight.w400,
   );
@@ -118,6 +124,7 @@ abstract class AppTextStyles {
   static final TextStyle uiLabelLargeBold = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f18,
+    color: AppColors.text,
     height: 1.33,
     fontWeight: FontWeight.w700,
   );
@@ -133,6 +140,7 @@ abstract class AppTextStyles {
   static final TextStyle uiLabelSmall = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f14,
+    color: AppColors.text,
     height: 1.14,
     fontWeight: FontWeight.w400,
   );
@@ -148,6 +156,7 @@ abstract class AppTextStyles {
   static final TextStyle uiLabelSmallBold = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f14,
+    color: AppColors.text,
     height: 1.14,
     fontWeight: FontWeight.w700,
   );
@@ -163,6 +172,7 @@ abstract class AppTextStyles {
   static final TextStyle smallPrint = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f12,
+    color: AppColors.text,
     height: 1.33,
     fontWeight: FontWeight.w400,
   );
@@ -178,6 +188,7 @@ abstract class AppTextStyles {
   static final TextStyle smallPrintBold = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f12,
+    color: AppColors.text,
     height: 1.33,
     fontWeight: FontWeight.w700,
   );
@@ -193,6 +204,7 @@ abstract class AppTextStyles {
   static final TextStyle eyebrow = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f14,
+    color: AppColors.text,
     height: 1.14,
     fontWeight: FontWeight.w700,
     letterSpacing: 0.84,
@@ -209,6 +221,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileBlockquote = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f24,
+    color: AppColors.text,
     height: 1.33,
     fontWeight: FontWeight.w300,
     fontStyle: FontStyle.italic,
@@ -225,6 +238,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileDisplayDisplayMobileCaps = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f48,
+    color: AppColors.text,
     height: 1.08,
     fontWeight: FontWeight.w900,
     letterSpacing: 1.92,
@@ -241,6 +255,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileDisplayDisplayMobile1 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f64,
+    color: AppColors.text,
     height: 1.13,
     fontWeight: FontWeight.w700,
   );
@@ -256,6 +271,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileDisplayDisplayMobile2 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f56,
+    color: AppColors.text,
     height: 1.14,
     fontWeight: FontWeight.w700,
   );
@@ -271,6 +287,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileHeadersHeaderMobile1 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f48,
+    color: AppColors.text,
     height: 1.17,
     fontWeight: FontWeight.w700,
   );
@@ -286,6 +303,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileHeadersHeaderMobile2 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f40,
+    color: AppColors.text,
     height: 1.2,
     fontWeight: FontWeight.w700,
   );
@@ -301,6 +319,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileHeadersHeaderMobile3 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f32,
+    color: AppColors.text,
     height: 1.25,
     fontWeight: FontWeight.w700,
   );
@@ -316,6 +335,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileHeadersHeaderMobile4 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f24,
+    color: AppColors.text,
     height: 1.33,
     fontWeight: FontWeight.w700,
   );
@@ -331,6 +351,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileHeadersHeaderMobile5 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f20,
+    color: AppColors.text,
     height: 1.2,
     fontWeight: FontWeight.w700,
   );
@@ -346,6 +367,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileHeadersHeaderMobile6 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f16,
+    color: AppColors.text,
     height: 1.5,
     fontWeight: FontWeight.w700,
   );
@@ -361,6 +383,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileTitlesTitleMobile1 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f24,
+    color: AppColors.text,
     height: 1.33,
     fontWeight: FontWeight.w500,
   );
@@ -376,6 +399,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileTitlesTitleMobile2 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f20,
+    color: AppColors.text,
     height: 1.4,
     fontWeight: FontWeight.w500,
   );
@@ -391,6 +415,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileTitlesTitleMobile3 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f18,
+    color: AppColors.text,
     height: 1.56,
     fontWeight: FontWeight.w500,
   );
@@ -406,6 +431,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileTitlesTitleMobile4 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f24,
+    color: AppColors.text,
     height: 1.33,
     fontWeight: FontWeight.w700,
   );
@@ -421,6 +447,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileSubheadersSubheaderMobile1 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f24,
+    color: AppColors.text,
     height: 1.33,
     fontWeight: FontWeight.w400,
   );
@@ -436,6 +463,7 @@ abstract class AppTextStyles {
   static final TextStyle mobileSubheadersSubheaderMobile2 = TextStyle(
     fontFamily: FontFamily.jost,
     fontSize: AppDimensions.f20,
+    color: AppColors.text,
     height: 1.4,
     fontWeight: FontWeight.w400,
   );
