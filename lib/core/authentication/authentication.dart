@@ -11,7 +11,9 @@ import 'package:io_mindtechapps_hw/core/services/http/dio_extensions.dart';
 import 'package:io_mindtechapps_hw/core/services/user_preference.dart';
 import 'package:io_mindtechapps_hw/core/utils/disposable_refresh_repository.dart';
 import 'package:io_mindtechapps_hw/core/utils/extensions/future_extensions.dart';
+import 'package:io_mindtechapps_hw/core/utils/extensions/string_extensions.dart';
 import 'package:io_mindtechapps_hw/core/utils/result.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:rxdart/rxdart.dart';
 
 part 'bloc/bloc.dart';

@@ -65,8 +65,18 @@ class AuthenticationRepository implements DisposableRepository {
     try {
       final userJsonString = await _userPreferences.readEncrypted(key: UserPreferenceKeys.userAccount);
       if (userJsonString != null) {
-        final userAccount = UserAccount.fromJson(jsonDecode(userJsonString));
-        _userAccountSubject.add(userAccount);
+        final biometrics = LocalAuthentication();
+        final authenticated = await biometrics.authenticate(
+          localizedReason: 'Please authenticate to show account'.hardCoded,
+          options: const AuthenticationOptions(useErrorDialogs: false),
+        );
+        if (authenticated) {
+          final userAccount = UserAccount.fromJson(jsonDecode(userJsonString));
+          _userAccountSubject.add(userAccount);
+        } else {
+          await _userPreferences.deleteEncrypted(key: UserPreferenceKeys.userAccount);
+          _userAccountSubject.add(null);
+        }
       } else {
         _userAccountSubject.add(null);
       }
