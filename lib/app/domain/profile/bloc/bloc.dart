@@ -1,8 +1,8 @@
-import 'package:app_skeleton/app/domain/profile/model.jsn.dart';
-import 'package:app_skeleton/app/domain/profile/repository.dart';
-import 'package:app_skeleton/core/bloc_base/base_bloc.dart';
-import 'package:app_skeleton/core/utils/extensions/safe_event_adding.dart';
-import 'package:app_skeleton/core/utils/result.dart';
+import 'package:io_mindtechapps_hw/app/domain/profile/model.jsn.dart';
+import 'package:io_mindtechapps_hw/app/domain/profile/repository.dart';
+import 'package:io_mindtechapps_hw/core/bloc_base/base_bloc.dart';
+import 'package:io_mindtechapps_hw/core/utils/extensions/safe_event_adding.dart';
+import 'package:io_mindtechapps_hw/core/utils/result.dart';
 
 part 'event.dart';
 part 'state.dart';

@@ -1,5 +1,5 @@
 part of 'router.dart';
 
-class AppSkeletonNavigatorKeys {
+class MindtechAppNavigatorKeys {
   static final navigationKey = GlobalKey<NavigatorState>();
 }

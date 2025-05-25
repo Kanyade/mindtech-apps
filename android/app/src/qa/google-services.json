@@ -1,5 +1,29 @@
 {
-  "project_info": {},
-  "client": [],
+  "project_info": {
+    "project_number": "472041429588",
+    "project_id": "mindtech-hw",
+    "storage_bucket": "mindtech-hw.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472041429588:android:40b5efd348d2b4ae446bc1",
+        "android_client_info": {
+          "package_name": "io.mindtechapps.hw"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2sff-S7hqUbdhjZf4rTkgUlwA5sBa4-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
   "configuration_version": "1"
 }

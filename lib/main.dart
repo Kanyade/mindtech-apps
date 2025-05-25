@@ -2,15 +2,15 @@
 
 import 'dart:isolate';
 
-import 'package:app_skeleton/app/presentation/restart/screen.dart';
-import 'package:app_skeleton/app_root.dart';
-import 'package:app_skeleton/bloc_observer.dart';
-import 'package:app_skeleton/bootstrap.dart';
-import 'package:app_skeleton/core/di/di_module.dart';
-import 'package:app_skeleton/core/resources/firebase_options/firebase_import.env.dart';
-import 'package:app_skeleton/core/services/crashlytics/crashlytics.dart';
-import 'package:app_skeleton/core/services/crashlytics/repository.dart';
-import 'package:app_skeleton/core/services/user_preference.dart';
+import 'package:io_mindtechapps_hw/app/presentation/restart/screen.dart';
+import 'package:io_mindtechapps_hw/app_root.dart';
+import 'package:io_mindtechapps_hw/bloc_observer.dart';
+import 'package:io_mindtechapps_hw/bootstrap.dart';
+import 'package:io_mindtechapps_hw/core/di/di_module.dart';
+import 'package:io_mindtechapps_hw/core/resources/firebase_options/firebase_import.env.dart';
+import 'package:io_mindtechapps_hw/core/services/crashlytics/crashlytics.dart';
+import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
+import 'package:io_mindtechapps_hw/core/services/user_preference.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -51,7 +51,7 @@ sealed class AppInitializer {
     await Firebase.initializeApp(options: FirebaseImport.getCurrentPlatform);
 
     await Bootstrapper.initialize();
-    Bloc.observer = AppSkeletonBlocObserver(crashlytics: DiModule.getObject<CrashlyticsRepository>());
+    Bloc.observer = MindtechAppBlocObserver(crashlytics: DiModule.getObject<CrashlyticsRepository>());
 
     await _initGlobalErrorReportingToCrashlytics();
   }

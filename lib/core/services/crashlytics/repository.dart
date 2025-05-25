@@ -1,5 +1,5 @@
-import 'package:app_skeleton/core/services/crashlytics/crashlytics.dart';
-import 'package:app_skeleton/core/utils/logger.dart';
+import 'package:io_mindtechapps_hw/core/services/crashlytics/crashlytics.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 
 class CrashlyticsRepository {
   CrashlyticsRepository(this._crashlytics);
@@ -11,7 +11,7 @@ class CrashlyticsRepository {
 
   Future<void> setUserProperties(String accountID, Map<String, dynamic> properties) async {
     await _crashlytics.setUserProperties(accountID, properties);
-    AppSkeletonLogger.logSuccess('CrashlyticsRepository: done with setting user keys.');
+    MindtechAppLogger.logSuccess('CrashlyticsRepository: done with setting user keys.');
   }
 
   Future<void> recordError({required dynamic exception, StackTrace? stackTrace, bool fatal = false}) {

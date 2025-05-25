@@ -1,5 +1,5 @@
-name: app_skeleton
-description: "App Skeleton"
+name: io_mindtechapps_hw
+description: "Mindtech Apps HW"
 publish_to: "none"
 
 version: 1.0.0+1
@@ -80,7 +80,7 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   json_serializable: ^6.9.5
   custom_lint: ^0.7.5
-  app_skeleton_custom_lint:
+  io_mindtechapps_hw_custom_lint:
     path: ./linter/
 
 flutter_gen:

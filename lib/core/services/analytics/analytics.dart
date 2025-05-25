@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:app_skeleton/core/resources/app_resources.dart';
-import 'package:app_skeleton/core/utils/extensions/string_extensions.dart';
-import 'package:app_skeleton/core/utils/logger.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
+import 'package:io_mindtechapps_hw/core/utils/extensions/string_extensions.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class AnalyticsService implements IAnalyticsService {
   @override
   Future<void> logEvent({required String eventName, required Map<String, Object?> parameters}) async {
     if (kDebugMode) {
-      AppSkeletonLogger.logSuccess('FirebaseAnalyticsEvent: eventName: $eventName params: $parameters');
+      MindtechAppLogger.logSuccess('FirebaseAnalyticsEvent: eventName: $eventName params: $parameters');
     } else {
       await _analytics.logEvent(
         name: eventName.take(39),
@@ -46,7 +46,7 @@ class AnalyticsService implements IAnalyticsService {
   @override
   Future<void> setUserProperties(String accountID, Map<String, dynamic> properties) async {
     if (kDebugMode) {
-      AppSkeletonLogger.logSuccess('FirebaseAnalyticsEvent: setUserProperties: $properties');
+      MindtechAppLogger.logSuccess('FirebaseAnalyticsEvent: setUserProperties: $properties');
     } else {
       await Future.wait([
         _analytics.setDefaultEventParameters(properties),
@@ -66,7 +66,7 @@ class AnalyticsService implements IAnalyticsService {
   Future<void> setCurrentScreen(String screen) {
     final parameters = {'screen': screen};
     if (kDebugMode) {
-      AppSkeletonLogger.logSuccess('FirebaseAnalyticsEvent: eventName: screen_view params: $parameters');
+      MindtechAppLogger.logSuccess('FirebaseAnalyticsEvent: eventName: screen_view params: $parameters');
       return Future.value();
     } else {
       return _analytics.logScreenView(screenName: screen, parameters: parameters);

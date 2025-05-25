@@ -1,4 +1,4 @@
-import 'package:app_skeleton/core/utils/logger.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class Settings {
@@ -11,7 +11,7 @@ class Settings {
     try {
       _appVersion = await getAppVersion();
     } catch (e) {
-      AppSkeletonLogger.logError('Settings: Could not get appVersion!');
+      MindtechAppLogger.logError('Settings: Could not get appVersion!');
     }
   }
 

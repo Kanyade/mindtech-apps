@@ -1,15 +1,15 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:app_skeleton/app/domain/profile/bloc/bloc.dart';
-import 'package:app_skeleton/app/domain/profile/repository.dart';
-import 'package:app_skeleton/app/presentation/_components/bottom_navigation_menu.dart';
-import 'package:app_skeleton/app/presentation/account/screen.dart';
-import 'package:app_skeleton/app/presentation/start/screen.dart';
-import 'package:app_skeleton/core/resources/app_resources.dart';
-import 'package:app_skeleton/core/services/analytics/repository.dart';
-import 'package:app_skeleton/core/services/crashlytics/repository.dart';
-import 'package:app_skeleton/core/utils/logger.dart';
+import 'package:io_mindtechapps_hw/app/domain/profile/bloc/bloc.dart';
+import 'package:io_mindtechapps_hw/app/domain/profile/repository.dart';
+import 'package:io_mindtechapps_hw/app/presentation/_components/bottom_navigation_menu.dart';
+import 'package:io_mindtechapps_hw/app/presentation/account/screen.dart';
+import 'package:io_mindtechapps_hw/app/presentation/start/screen.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
+import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
+import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +23,7 @@ part 'routes_builder.dart';
 
 enum BottomNavigationTab { start, account }
 
-class AppSkeletonRouter {
+class MindtechAppRouter {
   final CrashlyticsRepository _crashlyticsRepository;
   final AnalyticsRepository _analyticsRepository;
   final UserProfileRepository _profileDetailsRepository;
@@ -34,26 +34,26 @@ class AppSkeletonRouter {
 
   final List<BottomNavigationTab> _mainTabs;
 
-  AppSkeletonRouter(
+  MindtechAppRouter(
     this._crashlyticsRepository,
     this._analyticsRepository,
     this._profileDetailsRepository,
     this._routeBuilders, [
     this._mainTabs = BottomNavigationTab.values,
   ]) {
-    AppSkeletonLogger.logSuccess('AppSkeletonRouter: Starting...');
+    MindtechAppLogger.logSuccess('MindtechAppRouter: Starting...');
 
     _router = GoRouter(
       debugLogDiagnostics: kDebugMode,
       observers: [_analyticsRepository.navigatorObserver],
-      navigatorKey: AppSkeletonNavigatorKeys.navigationKey,
+      navigatorKey: MindtechAppNavigatorKeys.navigationKey,
       initialLocation: Routes.start,
       onException: (context, state, router) {
-        final e = 'AppSkeletonRouter: route not found ${state.uri.toString()}';
+        final e = 'MindtechAppRouter: route not found ${state.uri.toString()}';
         if (AppConstants.flavor == AppFlavor.prod) {
           unawaited(_crashlyticsRepository.recordError(exception: e, stackTrace: StackTrace.current));
         } else {
-          AppSkeletonLogger.logError(e);
+          MindtechAppLogger.logError(e);
         }
       },
       routes: <RouteBase>[

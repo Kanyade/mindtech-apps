@@ -1,5 +1,5 @@
-import 'package:app_skeleton/core/di/di_module.dart';
-import 'package:app_skeleton/core/services/settings.dart';
+import 'package:io_mindtechapps_hw/core/di/di_module.dart';
+import 'package:io_mindtechapps_hw/core/services/settings.dart';
 
 class SettingsDiModule extends DiModule {
   const SettingsDiModule();

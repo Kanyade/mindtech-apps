@@ -1,4 +1,4 @@
-name: app_skeleton_custom_lint
+name: io_mindtechapps_hw_custom_lint
 version: 0.0.1
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev

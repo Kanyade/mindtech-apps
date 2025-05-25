@@ -1,5 +1,5 @@
-import 'package:app_skeleton/app/presentation/_components/base_screen.dart';
-import 'package:app_skeleton/core/resources/app_resources.dart';
+import 'package:io_mindtechapps_hw/app/presentation/_components/base_screen.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:flutter/material.dart';
 
 class AccountScreen extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:app_skeleton/core/bloc_base/base_bloc.dart';
+import 'package:io_mindtechapps_hw/core/bloc_base/base_bloc.dart';
 import 'package:flutter/services.dart';
 
 part 'event.dart';

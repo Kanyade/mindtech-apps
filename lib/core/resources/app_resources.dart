@@ -4,15 +4,15 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:app_skeleton/core/resources/gen/assets.gen.dart';
-import 'package:app_skeleton/core/resources/gen/fonts.gen.dart';
+import 'package:io_mindtechapps_hw/core/resources/gen/assets.gen.dart';
+import 'package:io_mindtechapps_hw/core/resources/gen/fonts.gen.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-export 'package:app_skeleton/core/resources/gen/assets.gen.dart';
-export 'package:app_skeleton/core/resources/gen/fonts.gen.dart';
+export 'package:io_mindtechapps_hw/core/resources/gen/assets.gen.dart';
+export 'package:io_mindtechapps_hw/core/resources/gen/fonts.gen.dart';
 
 part 'app_button_themes.dart';
 part 'app_colors.dart';

@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:app_skeleton/core/router/router.dart';
-import 'package:app_skeleton/core/services/analytics/repository.dart';
-import 'package:app_skeleton/core/utils/extensions/go_router_extension.dart';
-import 'package:app_skeleton/core/utils/logger.dart';
+import 'package:io_mindtechapps_hw/core/router/router.dart';
+import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
+import 'package:io_mindtechapps_hw/core/utils/extensions/go_router_extension.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -22,11 +22,11 @@ extension ContextExtension on BuildContext {
     try {
       final uri = Uri.parse(route);
 
-      AppSkeletonLogger.logWarning('ContextExtension.routeExists uri: $uri');
+      MindtechAppLogger.logWarning('ContextExtension.routeExists uri: $uri');
 
       return GoRouter.of(this).routeInformationParser.configuration.findMatch(uri).matches.isNotEmpty;
     } catch (err) {
-      AppSkeletonLogger.logError('ContextExtension.routeExists ${err.toString()}}');
+      MindtechAppLogger.logError('ContextExtension.routeExists ${err.toString()}}');
       return false;
     }
   }

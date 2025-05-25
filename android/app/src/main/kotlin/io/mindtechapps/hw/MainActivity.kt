@@ -1,4 +1,4 @@
-package io.app.skeleton
+package io.mindtechapps.hw
 
 import io.flutter.embedding.android.FlutterActivity
 

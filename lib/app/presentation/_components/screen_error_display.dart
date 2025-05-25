@@ -1,6 +1,6 @@
-import 'package:app_skeleton/app/presentation/_components/app_button.dart';
-import 'package:app_skeleton/core/resources/app_resources.dart';
-import 'package:app_skeleton/core/utils/extensions/string_extensions.dart';
+import 'package:io_mindtechapps_hw/app/presentation/_components/app_button.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
+import 'package:io_mindtechapps_hw/core/utils/extensions/string_extensions.dart';
 import 'package:flutter/material.dart';
 
 class ScreenErrorDisplay extends StatelessWidget {

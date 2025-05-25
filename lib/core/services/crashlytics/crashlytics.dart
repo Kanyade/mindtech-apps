@@ -1,4 +1,4 @@
-import 'package:app_skeleton/core/utils/logger.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 
@@ -10,7 +10,7 @@ class Crashlytics implements ICrashlytics {
   @override
   Future<void> setCrashlyticsCollectionEnabled({required bool enabled}) {
     if (kDebugMode) {
-      AppSkeletonLogger.logSuccess('Crashlytics: setCrashlyticsCollectionEnabled: $enabled');
+      MindtechAppLogger.logSuccess('Crashlytics: setCrashlyticsCollectionEnabled: $enabled');
       return Future.value();
     } else {
       return _instance.setCrashlyticsCollectionEnabled(enabled);
@@ -20,7 +20,7 @@ class Crashlytics implements ICrashlytics {
   @override
   Future<void> setUserProperties(String accountID, Map<String, dynamic> properties) async {
     if (kDebugMode) {
-      AppSkeletonLogger.logSuccess('Crashlytics: setUserProperties: $properties');
+      MindtechAppLogger.logSuccess('Crashlytics: setUserProperties: $properties');
     } else {
       await Future.wait([_instance.setUserIdentifier(accountID), ..._setUserPropertiesBatch(properties)]);
     }
@@ -38,7 +38,7 @@ class Crashlytics implements ICrashlytics {
   @override
   Future<void> recordError({dynamic exception, StackTrace? stackTrace, String? reason, bool fatal = false}) {
     if (kDebugMode) {
-      AppSkeletonLogger.logError(
+      MindtechAppLogger.logError(
         'Crashlytics: recordError: $exception, stackTrace: $stackTrace, reason: $reason, fatal: $fatal',
       );
       return Future.value();
@@ -50,7 +50,7 @@ class Crashlytics implements ICrashlytics {
   @override
   Future<void> recordFlutterFatalError(FlutterErrorDetails flutterError) {
     if (kDebugMode) {
-      AppSkeletonLogger.logError('Crashlytics: recordFlutterFatalError: ${flutterError.exceptionAsString()}');
+      MindtechAppLogger.logError('Crashlytics: recordFlutterFatalError: ${flutterError.exceptionAsString()}');
       return Future.value();
     } else {
       return _instance.recordFlutterError(flutterError);

@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 
 const bool _isVsCode = bool.fromEnvironment('vscode');
 
-class AppSkeletonLogger {
+class MindtechAppLogger {
   static void logInfo(String msg) {
     if (!kDebugMode) return;
 

@@ -1,4 +1,4 @@
-import 'package:app_skeleton/core/utils/result.dart';
+import 'package:io_mindtechapps_hw/core/utils/result.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class OpenUrlRepository {

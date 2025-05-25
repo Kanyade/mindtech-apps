@@ -15,9 +15,9 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "io.app.skeleton"
+    namespace = "io.mindtechapps.hw"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
@@ -30,7 +30,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "io.app.skeleton"
+        applicationId = "io.mindtechapps.hw"
         multiDexEnabled = true
         minSdk = 23
         targetSdk = flutter.targetSdkVersion

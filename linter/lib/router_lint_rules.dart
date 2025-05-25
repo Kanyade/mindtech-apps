@@ -1,6 +1,6 @@
 import 'package:analyzer/error/listener.dart';
-import 'package:app_skeleton_custom_lint/extensions.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
+import 'package:io_mindtechapps_hw_custom_lint/extensions.dart';
 
 class RouterGoUsageLint extends DartLintRule {
   const RouterGoUsageLint() : super(code: _code);
@@ -71,7 +71,7 @@ class BootstrapImportLint extends DartLintRule {
   @override
   void run(CustomLintResolver resolver, ErrorReporter reporter, CustomLintContext context) {
     context.registry.addImportDirective((node) {
-      if (node.uri.stringValue == 'package:app_skeleton/bootstrap.dart') {
+      if (node.uri.stringValue == 'package:io_mindtechapps_hw/bootstrap.dart') {
         reporter.atNode(node, _code);
       }
     });

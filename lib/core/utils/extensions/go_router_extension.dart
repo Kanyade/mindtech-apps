@@ -2,7 +2,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:app_skeleton/core/router/router.dart';
+import 'package:io_mindtechapps_hw/core/router/router.dart';
 import 'package:go_router/go_router.dart';
 
 extension GoRouterExtension on GoRouter {

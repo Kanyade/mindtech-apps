@@ -1,6 +1,6 @@
-import 'package:app_skeleton/core/services/crashlytics/repository.dart';
-import 'package:app_skeleton/core/services/remote_config/model.env.dart';
-import 'package:app_skeleton/core/utils/logger.dart';
+import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
+import 'package:io_mindtechapps_hw/core/services/remote_config/model.env.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 
 class RemoteConfigRepository implements IRemoteConfigRepository {
@@ -16,10 +16,10 @@ class RemoteConfigRepository implements IRemoteConfigRepository {
     _remoteConfigInstance.onConfigUpdated.listen((event) async {
       try {
         if (await _remoteConfigInstance.activate()) {
-          AppSkeletonLogger.logInfo('FirebaseRemoteConfigRepository: Remote config updated');
+          MindtechAppLogger.logInfo('FirebaseRemoteConfigRepository: Remote config updated');
         }
       } catch (e, st) {
-        AppSkeletonLogger.logError('FirebaseRemoteConfigRepository: $e');
+        MindtechAppLogger.logError('FirebaseRemoteConfigRepository: $e');
 
         _crashlytics
             .recordError(
@@ -37,7 +37,7 @@ class RemoteConfigRepository implements IRemoteConfigRepository {
     try {
       return await _remoteConfigInstance.fetchAndActivate();
     } catch (e, st) {
-      AppSkeletonLogger.logError('FirebaseRemoteConfigRepository: $e');
+      MindtechAppLogger.logError('FirebaseRemoteConfigRepository: $e');
 
       _crashlytics.recordError(exception: e, stackTrace: st, fatal: true).ignore();
     }

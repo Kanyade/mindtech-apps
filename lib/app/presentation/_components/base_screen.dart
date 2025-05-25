@@ -1,5 +1,5 @@
-import 'package:app_skeleton/core/resources/app_resources.dart';
-import 'package:app_skeleton/core/utils/extensions/context_extension.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
+import 'package:io_mindtechapps_hw/core/utils/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 

@@ -1,4 +1,4 @@
-import 'package:app_skeleton/core/resources/app_resources.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:flutter/material.dart';
 
 enum SnackbarType { error, attention, success }

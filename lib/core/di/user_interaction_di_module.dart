@@ -1,6 +1,6 @@
-import 'package:app_skeleton/core/di/di_module.dart';
-import 'package:app_skeleton/core/services/clipboard/bloc.dart';
-import 'package:app_skeleton/core/services/open_url/repository.dart';
+import 'package:io_mindtechapps_hw/core/di/di_module.dart';
+import 'package:io_mindtechapps_hw/core/services/clipboard/bloc.dart';
+import 'package:io_mindtechapps_hw/core/services/open_url/repository.dart';
 
 class UserInteractionDiModule extends DiModule {
   const UserInteractionDiModule();
