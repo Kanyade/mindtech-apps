@@ -1,12 +1,12 @@
 import 'dart:async';
 
+import 'package:dio/dio.dart';
 import 'package:io_mindtechapps_hw/app/domain/profile/model.jsn.dart';
 import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/services/http/dio_extensions.dart';
 import 'package:io_mindtechapps_hw/core/utils/disposable_refresh_repository.dart';
 import 'package:io_mindtechapps_hw/core/utils/result.dart';
-import 'package:dio/dio.dart';
 
 enum UserProfileError { unknownError }
 

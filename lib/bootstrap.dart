@@ -1,5 +1,6 @@
 import 'package:io_mindtechapps_hw/core/di/account_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/analytics_di_module.dart';
+import 'package:io_mindtechapps_hw/core/di/authentication_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/http_client_di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/navigation_di_module.dart';
@@ -18,6 +19,7 @@ sealed class Bootstrapper {
       AnalyticsDiModule(),
       UserPreferencesDiModule(),
       HttpClientDiModule(),
+      AuthenticationDiModule(),
       UserInteractionDiModule(),
       SettingsDiModule(),
       AccountDiModule(),

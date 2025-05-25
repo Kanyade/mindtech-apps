@@ -1,7 +1,7 @@
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/services/remote_config/model.env.dart';
 import 'package:io_mindtechapps_hw/core/utils/logger.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
 
 class RemoteConfigRepository implements IRemoteConfigRepository {
   RemoteConfigRepository(this._crashlytics);

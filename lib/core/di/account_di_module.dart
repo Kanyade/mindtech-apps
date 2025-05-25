@@ -1,9 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:io_mindtechapps_hw/app/domain/profile/repository.dart';
 import 'package:io_mindtechapps_hw/core/di/di_module.dart';
 import 'package:io_mindtechapps_hw/core/di/http_client_di_module.dart';
 import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
-import 'package:dio/dio.dart';
 
 class AccountDiModule extends DiModule {
   const AccountDiModule();

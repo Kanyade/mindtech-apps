@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
-import 'package:io_mindtechapps_hw/core/utils/extensions/string_extensions.dart';
-import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
+import 'package:io_mindtechapps_hw/core/utils/extensions/string_extensions.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 
 abstract class IAnalyticsService {
   NavigatorObserver get navigatorObserver;

@@ -4,12 +4,12 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:io_mindtechapps_hw/core/resources/gen/assets.gen.dart';
-import 'package:io_mindtechapps_hw/core/resources/gen/fonts.gen.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:io_mindtechapps_hw/core/resources/gen/assets.gen.dart';
+import 'package:io_mindtechapps_hw/core/resources/gen/fonts.gen.dart';
 
 export 'package:io_mindtechapps_hw/core/resources/gen/assets.gen.dart';
 export 'package:io_mindtechapps_hw/core/resources/gen/fonts.gen.dart';

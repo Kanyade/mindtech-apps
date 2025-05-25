@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:io_mindtechapps_hw/app/presentation/_components/app_button.dart';
 import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:io_mindtechapps_hw/core/utils/extensions/string_extensions.dart';
 import 'package:io_mindtechapps_hw/main.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RestartAppScreen extends StatelessWidget {
   const RestartAppScreen({super.key});

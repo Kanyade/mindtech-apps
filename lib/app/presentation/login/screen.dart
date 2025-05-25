@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text('Login screen', style: AppTextStyles.uiLabelLarge, textAlign: TextAlign.center)],
+          children: [Text('Login screen22', style: AppTextStyles.uiLabelLarge, textAlign: TextAlign.center)],
         ),
       ),
     );

@@ -1,5 +1,5 @@
-import 'package:io_mindtechapps_hw/core/bloc_base/base_bloc.dart';
 import 'package:flutter/services.dart';
+import 'package:io_mindtechapps_hw/core/bloc_base/base_bloc.dart';
 
 part 'event.dart';
 part 'repository.dart';

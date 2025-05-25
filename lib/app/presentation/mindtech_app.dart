@@ -1,15 +1,15 @@
 import 'dart:async';
 
-import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
-import 'package:io_mindtechapps_hw/core/router/router.dart';
-import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
-import 'package:io_mindtechapps_hw/core/utils/logger.dart';
-import 'package:io_mindtechapps_hw/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
+import 'package:io_mindtechapps_hw/core/router/router.dart';
+import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
+import 'package:io_mindtechapps_hw/main.dart';
 import 'package:upgrader/upgrader.dart';
 
 class MindtechApp extends HookWidget {

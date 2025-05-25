@@ -1,12 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:io_mindtechapps_hw/core/router/router.dart';
 import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/utils/extensions/go_router_extension.dart';
 import 'package:io_mindtechapps_hw/core/utils/logger.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 extension ContextExtension on BuildContext {
   ThemeData get theme => Theme.of(this);

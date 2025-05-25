@@ -2,8 +2,8 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:io_mindtechapps_hw/core/router/router.dart';
 import 'package:go_router/go_router.dart';
+import 'package:io_mindtechapps_hw/core/router/router.dart';
 
 extension GoRouterExtension on GoRouter {
   void popNavigate<T>([T? result]) => pop(result);

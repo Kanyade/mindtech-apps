@@ -1,7 +1,7 @@
-import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:envied/envied.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 
 part 'firebase_import.env.g.dart';
 

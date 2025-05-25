@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:io_mindtechapps_hw/app/presentation/mindtech_app.dart';
+import 'package:io_mindtechapps_hw/core/authentication/authentication.dart';
 import 'package:io_mindtechapps_hw/core/di/di_module.dart';
 import 'package:io_mindtechapps_hw/core/router/router.dart';
 import 'package:io_mindtechapps_hw/core/services/analytics/repository.dart';
@@ -51,7 +52,10 @@ class _BaseBlocsInserter extends HookWidget {
   List<BlocProvider> _baseBlocProviders() {
     MindtechAppLogger.logInfo('Base bloc providers starting...');
 
-    return [BlocProvider<ClipboardBloc>.value(value: DiModule.getObject<ClipboardBloc>())];
+    return [
+      BlocProvider<AuthenticationBloc>.value(value: DiModule.getObject<AuthenticationBloc>()),
+      BlocProvider<ClipboardBloc>.value(value: DiModule.getObject<ClipboardBloc>()),
+    ];
   }
 
   List<RepositoryProvider> _baseRepositories() {

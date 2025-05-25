@@ -2,6 +2,12 @@
 
 import 'dart:isolate';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:io_mindtechapps_hw/app/presentation/restart/screen.dart';
 import 'package:io_mindtechapps_hw/app_root.dart';
 import 'package:io_mindtechapps_hw/bloc_observer.dart';
@@ -11,12 +17,6 @@ import 'package:io_mindtechapps_hw/core/resources/firebase_options/firebase_impo
 import 'package:io_mindtechapps_hw/core/services/crashlytics/crashlytics.dart';
 import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/services/user_preference.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() {

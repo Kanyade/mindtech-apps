@@ -1,5 +1,5 @@
-import 'package:io_mindtechapps_hw/core/utils/extensions/map_extension.dart';
 import 'package:dio/dio.dart';
+import 'package:io_mindtechapps_hw/core/utils/extensions/map_extension.dart';
 
 Future<Dio> createHttpClient({
   required Future<String> Function() getBaseUrl,

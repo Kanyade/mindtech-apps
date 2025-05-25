@@ -1,6 +1,6 @@
-import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
+import 'package:io_mindtechapps_hw/core/utils/logger.dart';
 
 class Crashlytics implements ICrashlytics {
   const Crashlytics();

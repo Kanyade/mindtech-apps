@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class UserPreferenceKeys {
   static const String isFirstRun = 'is_first_run';
+  static const String userAccount = 'user_account';
 }
 
 class UserPreferences {

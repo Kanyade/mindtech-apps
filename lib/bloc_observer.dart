@@ -1,7 +1,7 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:io_mindtechapps_hw/core/services/crashlytics/repository.dart';
 import 'package:io_mindtechapps_hw/core/utils/extensions/string_extensions.dart';
 import 'package:io_mindtechapps_hw/core/utils/logger.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MindtechAppBlocObserver extends BlocObserver {
   MindtechAppBlocObserver({required this.crashlytics});

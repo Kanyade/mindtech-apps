@@ -1,5 +1,5 @@
-import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:envied/envied.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 
 part 'model.env.g.dart';
 

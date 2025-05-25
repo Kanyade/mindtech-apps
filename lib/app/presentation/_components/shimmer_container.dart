@@ -1,5 +1,5 @@
-import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:flutter/widgets.dart';
+import 'package:io_mindtechapps_hw/core/resources/app_resources.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerContainer extends StatelessWidget {
